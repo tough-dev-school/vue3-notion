@@ -30,37 +30,37 @@ if (!availableType.includes(type.value)) console.warn(`${type.value.toUpperCase(
 </script>
 
 <template>
-  <div style="width: 100%" v-if="isType('page')">
+  <div :id="pass.contentId" style="width: 100%" v-if="isType('page')">
     <NotionPage class="notion-page-content" v-bind="pass">
       <slot />
     </NotionPage>
   </div>
-  <NotionHeader v-else-if="isType(['header', 'sub_header', 'sub_sub_header'])" v-bind="pass" />
-  <NotionBookmark v-else-if="isType('bookmark')" v-bind="pass" />
-  <NotionCallout v-else-if="isType('callout')" v-bind="pass" />
-  <NotionCode v-else-if="isType('code')" v-bind="pass" />
-  <NotionEquation v-else-if="isType('equation')" v-bind="pass" />
-  <NotionText v-else-if="isType('text')" v-bind="pass" />
-  <NotionQuote v-else-if="isType('quote')" v-bind="pass" />
-  <NotionTodo v-else-if="isType('to_do')" v-bind="pass" />
-  <NotionToggle v-else-if="isType('toggle')" v-bind="pass">
+  <NotionHeader :id="pass.contentId" v-else-if="isType(['header', 'sub_header', 'sub_sub_header'])" v-bind="pass" />
+  <NotionBookmark :id="pass.contentId" v-else-if="isType('bookmark')" v-bind="pass" />
+  <NotionCallout :id="pass.contentId" v-else-if="isType('callout')" v-bind="pass" />
+  <NotionCode :id="pass.contentId" v-else-if="isType('code')" v-bind="pass" />
+  <NotionEquation :id="pass.contentId" v-else-if="isType('equation')" v-bind="pass" />
+  <NotionText :id="pass.contentId" v-else-if="isType('text')" v-bind="pass" />
+  <NotionQuote :id="pass.contentId" v-else-if="isType('quote')" v-bind="pass" />
+  <NotionTodo :id="pass.contentId" v-else-if="isType('to_do')" v-bind="pass" />
+  <NotionToggle :id="pass.contentId" v-else-if="isType('toggle')" v-bind="pass">
     <slot />
   </NotionToggle>
-  <div v-else-if="isType('column_list')" class="notion-row">
+  <div :id="pass.contentId" v-else-if="isType('column_list')" class="notion-row">
     <slot />
   </div>
-  <NotionColumn v-else-if="isType('column')" :format="format">
+  <NotionColumn :id="pass.contentId" v-else-if="isType('column')" :format="format">
     <slot />
   </NotionColumn>
-  <NotionList v-else-if="isType(['bulleted_list', 'numbered_list'])" v-bind="pass">
+  <NotionList :id="pass.contentId" v-else-if="isType(['bulleted_list', 'numbered_list'])" v-bind="pass">
     <slot />
   </NotionList>
-  <NotionFigure v-else-if="isType(['image', 'embed', 'figma', 'video', 'audio', 'drive', 'maps'])" v-bind="pass" />
-  <NotionTable v-else-if="isType('table')" v-bind="pass"><slot /></NotionTable>
-  <NotionTableRow v-else-if="isType('table_row')" v-bind="pass" />
-  <NotionTableOfContents v-else-if="isType('table_of_contents')" v-bind="pass"></NotionTableOfContents>
-  <NotionSyncBlock v-else-if="isType('transclusion_container')"><slot /></NotionSyncBlock>
-  <NotionSyncPointerBlock v-else-if="isType('transclusion_reference')" v-bind="pass"></NotionSyncPointerBlock>
-  <NotionTweet v-else-if="isType('tweet')" v-bind="pass"></NotionTweet>
-  <hr v-else-if="isType('divider')" class="notion-hr" />
+  <NotionFigure :id="pass.contentId" v-else-if="isType(['image', 'embed', 'figma', 'video', 'audio', 'drive', 'maps'])" v-bind="pass" />
+  <NotionTable :id="pass.contentId" v-else-if="isType('table')" v-bind="pass"><slot /></NotionTable>
+  <NotionTableRow :id="pass.contentId" v-else-if="isType('table_row')" v-bind="pass" />
+  <NotionTableOfContents :id="pass.contentId" v-else-if="isType('table_of_contents')" v-bind="pass"></NotionTableOfContents>
+  <NotionSyncBlock :id="pass.contentId" v-else-if="isType('transclusion_container')"><slot /></NotionSyncBlock>
+  <NotionSyncPointerBlock :id="pass.contentId" v-else-if="isType('transclusion_reference')" v-bind="pass"></NotionSyncPointerBlock>
+  <NotionTweet :id="pass.contentId" v-else-if="isType('tweet')" v-bind="pass"></NotionTweet>
+  <hr :id="pass.contentId" v-else-if="isType('divider')" class="notion-hr" />
 </template>
