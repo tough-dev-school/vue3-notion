@@ -41,7 +41,7 @@
     "build:rollup": "rollup -c",
     "build:types": "vue-tsc --noEmit",
     "preview": "vite preview",
-    "postinstall": "npm run build"
+    "prepare": "npm run build"
   },
   "dependencies": {
     "@nuxt/kit": "^3.0.0-rc.1",
