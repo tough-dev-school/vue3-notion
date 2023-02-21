@@ -1,9 +1,7 @@
 {
   "name": "vue3-notion",
-  "version": "0.1.40",
+  "private": true,
   "description": "Vue 3 Unofficial Notion Renderer",
-  "homepage": "https://vue3-notion.vercel.app/",
-  "repository": "github:zernonia/vue3-notion",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
@@ -43,9 +41,7 @@
     "build:rollup": "rollup -c",
     "build:types": "vue-tsc --noEmit",
     "preview": "vite preview",
-    "version": " git add -A src",
-    "postversion": "git push && git push --tags",
-    "deploy": "npm run build && npm version patch && npm publish"
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "@nuxt/kit": "^3.0.0-rc.1",
